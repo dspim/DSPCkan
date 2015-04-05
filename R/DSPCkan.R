@@ -1,5 +1,7 @@
 .url <- "http://data.dsp.im/"
 
+.apikey <- NULL
+
 #'@export
 package_list <- function(as = "table") {
   ckanr::package_list(as = as, url = .url)
@@ -28,5 +30,13 @@ decode_hex_utf16 <- function(x) {
     retval[i] <- gsub(pattern = m[[i]][1], replacement = value, x = x[i], fixed = TRUE)
   }
   retval
+}
+
+#'@importFrom svGUI is.gui
+#'@importFrom svDialogs dlgForm
+#'@export
+input_apikey <- function() {
+  Form <- list("API-Key:TXT" = "")
+  dlgForm(Form, "My API-Key")$res
 }
 
