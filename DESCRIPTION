@@ -7,3 +7,4 @@ Author: Wush Wu
 Maintainer: Wush Wu <wush978@gmail.com>
 Description: Client of DSP Ckan Service in R
 License: GPL(>= 3)
+Imports: ckanr
