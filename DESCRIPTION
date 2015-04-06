@@ -8,4 +8,4 @@ Maintainer: Wush Wu <wush978@gmail.com>
 Description: Client of DSP Ckan Service in R
 License: GPL(>= 3)
 Depends: svGUI
-Imports: ckanr, svDialogs, httr
+Imports: ckanr, svDialogs, httr, magrittr
