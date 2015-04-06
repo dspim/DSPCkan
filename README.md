@@ -30,13 +30,21 @@ download_course_materials()
 
 此時會看到以下畫面：
 
-請貼上在 <https://data.dsp.im/user/你的帳號> 中左下角看到的API-Key
+
+請貼上在 <https://data.dsp.im/user/你的帳號> 中左下角看到的API-Key：
+
+![](query_apikey.png)
 
 並貼上如下：
+
+![](apikey.png)
 
 在看到[OK]/Cancel之後請直接按下Enter
 
 最後會看到課程清單：
+
+![](list_packages.png)
+
 
 請記目標課程的id
 
@@ -50,11 +58,15 @@ download_course_materials("a1course")
 
 輸入後，會要求輸入下載目標目錄：
 
+![](destination.png)
+
 如果不想輸入，可以直接Enter跳過，系統會下載至暫存目錄。
 
 在看到[OK]/Cancel之後請直接按下Enter
 
 在下載結束之後，會顯示下載的目標目錄：
+
+!![](download.png)
 
 之後可以輸入：
 
