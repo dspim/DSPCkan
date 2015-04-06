@@ -78,6 +78,8 @@ browseURL("/private/var/folders/gg/g2b9zg5n59nb_93t3xnc8xtr0000gn/T/RtmpoU3MuJ")
 
 ## 故障排除
 
+請先嘗試將`httr`和`RCurl`更新至最新的版本
+
 如果在執行`download_course_materials`看到：
 
 ```
