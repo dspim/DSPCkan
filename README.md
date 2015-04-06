@@ -4,8 +4,8 @@
 
 ```r
 library(devtools)
-install_github("ckanr", "wush978")
-install_github("DSPCkan", "dspim")
+install_github("wush978/ckanr")
+install_github("dspim/DSPCkan")
 ```
 
 目前DSPCkan需要使用非官方的ckanr套件
