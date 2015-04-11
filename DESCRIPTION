@@ -1,7 +1,7 @@
 Package: DSPCkan
 Type: Package
 Title: Client of DSP Ckan Service in R
-Version: 0.1
+Version: 0.1.1
 Date: 2015-03-29
 Author: Wush Wu
 Maintainer: Wush Wu <wush978@gmail.com>

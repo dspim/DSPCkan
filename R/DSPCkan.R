@@ -1,4 +1,4 @@
-.url <- "https://data.dsp.im"
+.url <- "http://data.dsp.im"
 
 #'@importFrom magrittr %>%
 #'@importFrom httr add_headers
