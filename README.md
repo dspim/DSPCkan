@@ -4,8 +4,8 @@
 
 ```r
 library(devtools)
-install_github("ckanr", "wush978")
-install_github("DSPCkan", "dspim")
+install_github("wush978/ckanr")
+install_github("dspim/DSPCkan")
 ```
 
 目前DSPCkan需要使用非官方的ckanr套件
@@ -77,6 +77,8 @@ browseURL("/private/var/folders/gg/g2b9zg5n59nb_93t3xnc8xtr0000gn/T/RtmpoU3MuJ")
 來打開該目錄，檢視已經下載的檔案。
 
 ## 故障排除
+
+請先嘗試將`httr`和`RCurl`更新至最新的版本
 
 如果在執行`download_course_materials`看到：
 

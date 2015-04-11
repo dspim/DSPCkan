@@ -1,28 +1,35 @@
 .url <- "http://data.dsp.im"
 
 #'@importFrom magrittr %>%
+#'@importFrom httr config
+#'@importFrom httr GET
+#'@importFrom httr content
 #'@importFrom httr add_headers
 package_list <- function(offset = 0, limit = 31, as = "table") {
   ckanr::package_list(offset = offset, limit = limit, as = as, url = .url, 
-                      add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", ""))) %>%
+                      add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")),
+                      config(cainfo = system.file("cacert.crt", package = "DSPCkan"))) %>%
     decode_hex_utf16
 }
 
 tag_list <- function(as = "table") {
   ckanr::tag_list(query = NULL, vocabulary_id = NULL, all_fields = TRUE,
-                  as = as, url = .url, add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", ""))) %>%
+                  as = as, url = .url, add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")),
+                  config(cainfo = system.file("cacert.crt", package = "DSPCkan"))) %>%
     decode_hex_utf16
 }
 
 organization_list <- function(as = "table") {
   ckanr::organization_list(order_by = "name", decreasing = TRUE, organizations = NULL, all_fields = TRUE,
-                          as = as, url = .url, add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", ""))) %>%
+                          as = as, url = .url, add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")),
+                          config(cainfo = system.file("cacert.crt", package = "DSPCkan"))) %>%
     decode_hex_utf16
 }
 
 organization_show <- function(id, as = "table") {
   ckanr::organization_show(id = id, include_datasets = TRUE, url = .url, as = as, 
-                           add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", ""))) %>%
+                           add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")),
+                           config(cainfo = system.file("cacert.crt", package = "DSPCkan"))) %>%
     `[`(c("display_name", "description", "title", "package_count", "packages", "name")) %>%
     decode_hex_utf16
 }
@@ -54,8 +61,11 @@ download_course_materials <- function(course_name = NULL, enter_api_key = FALSE,
         normalizePath(mustWork = FALSE)
       if (file.exists(dest)) next
       cat(sprintf("\tDownloading %s...\n", packages$file_name[i]))
-      res <- httr::GET(packages$url[i], add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")))
-      binary <- httr::content(res)
+      res <- GET(packages$url[i], 
+                 add_headers("X-CKAN-API-Key" = getOption("X-CKAN-API-Key", "")),
+                 config(cainfo = system.file("cacert.crt", package = "DSPCkan"))
+                 )
+      binary <- content(res, "raw")
       writeBin(binary, dest)
     }
     cat(sprintf("The data are downloaded to %s\n", destdir))
